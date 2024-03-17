@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <form action="/action">
+    Name <input type="text" name="" id="name">
+    UserName <input type="text" name="" id="user">
+    <button>submit</button>
+
+    <script>
+        let form = document.querySelector("form");
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
+
+            // let name=document.querySelector("#name");
+            // let username=document.querySelector("#user");
+
+            //2nd method
+            
+            let name=this.elements[0];
+            let username=this.elements[1];
+
+            console.log(name.value);
+            console.log(user.value);
+        });
+    </script>
+
+   </form>
+</body>
+</html>

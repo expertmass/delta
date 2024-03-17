@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #5ff443, #ffdb3a30);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 80px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #ff402c;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .delete {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        .delete:hover {
+            background-color: #ff402c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Todo list</h1>
+        <input type="text" name="" id="" placeholder="Enter your task">
+        <button>Submit</button>
+        <ul>
+           <li>eat<button class="delete">delete</button></li>
+           <li>walk<button class="delete">delete</button></li>
+        </ul>
+    </div>
+
+    <script>
+        let btn=document.querySelector("button");
+        let ul=document.querySelector("ul");
+        let inp=document.querySelector("input");
+
+        btn.addEventListener("click", function(){
+
+            let item=document.createElement("li");
+            
+            item.innerText=inp.value;
+
+            let delbtn=document.createElement("button");
+            delbtn.innerText="delete";
+
+            delbtn.classList.add("delete");
+            item.appendChild(delbtn);
+            ul.appendChild(item);
+            inp.value="";
+        })
+        ul.addEventListener("click",function(event){
+           if(event.target.nodeName=="BUTTON"){
+           let listitem= event.target.parentElement;
+           listitem.remove();
+           alert("Item Deleted");
+           }
+           
+        })
+    </script>
+</body>
+</html>
