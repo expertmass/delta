@@ -7,3 +7,7 @@ let port =8080;
 app.listen(port, ()=>{
     console.log(`app listeing on port ${port}`);
 })
+
+app.use((req,response) =>{
+    console.log("Request Rececied")
+})
